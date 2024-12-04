@@ -314,7 +314,7 @@ public class CopyOfDisplay extends JFrame implements ActionListener
             loginButton = new JButton("LogIn");
             loginButton.addActionListener(CopyOfDisplay.this);
             loginButton.setEnabled(true);
-            p.add("West", loginButton);
+            p.add("North", loginButton);
 
             // Speisekarte-Knopf
             speisekarteButton = new JButton("Speisekarte");

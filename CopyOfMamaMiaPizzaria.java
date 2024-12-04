@@ -105,7 +105,7 @@ public class CopyOfMamaMiaPizzaria
     
     public void login()
     {
-        fenster.println("Login successful");
+        fenster.println("Login successful!");
     }
 
     public void speisekarte()
@@ -124,7 +124,7 @@ public class CopyOfMamaMiaPizzaria
     }
 
     @Override
-    public String toString() {
+    public String toString() { //Eig macht das nicht aber kb das zu löschen und wenn ich das mal verstehe kann das glaub ich mega gut sein
         return "Hurensohn";
     }
 }
