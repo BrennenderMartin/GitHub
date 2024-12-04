@@ -56,7 +56,7 @@ public class CopyOfMamaMiaPizzaria
         objectList.add(new MyObject("Pasta", 8.90));
         objectList.add(new MyObject("Pommes", 3.90));
     }
-    
+
     public void start()
     {
         bestellung = 0;
@@ -107,6 +107,7 @@ public class CopyOfMamaMiaPizzaria
     public void login()
     {
         fenster.println("Login successful!");
+        fenster.println(" ");
     }
 
     public void speisekarte()
