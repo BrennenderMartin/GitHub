@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * Die Pizzeria
- * 
+ *
  * @author: base made by Fischi, edited by Luis and Mattis
  */
 public class CopyOfMamaMiaPizzaria
@@ -35,7 +35,7 @@ public class CopyOfMamaMiaPizzaria
 
     // Dienste
     public static void main(String[] args)
-    { 
+    {
         @SuppressWarnings("unused")
         CopyOfMamaMiaPizzaria main = new CopyOfMamaMiaPizzaria();
     }
@@ -75,9 +75,9 @@ public class CopyOfMamaMiaPizzaria
 
     public void exe()
     {
-        fenster.println("Auftrag \"" + bestellungsname + 
-                        "\" für \"" + anschrift_name + 
-                        "\" in Bearbeitung nach \"" + lieferadresse + 
+        fenster.println("Auftrag \"" + bestellungsname +
+                        "\" für \"" + anschrift_name +
+                        "\" in Bearbeitung nach \"" + lieferadresse +
                         "\". \n");
         
         if (objectList.contains(inputObject)) {
@@ -103,6 +103,11 @@ public class CopyOfMamaMiaPizzaria
         fenster.println("Das macht 35 € bitte! \n");
     }
     
+    public void login()
+    {
+        fenster.println("Login successful");
+    }
+
     public void speisekarte()
     {
         fenster.println("Speisekarte:");

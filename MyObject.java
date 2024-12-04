@@ -1,5 +1,5 @@
 /**
- * Class created by ChatGPT, to have a Object, 
+ * Class created by ChatGPT, to have a Object,
  * which can be compared in a list,
  * also used for the Speisekarte
  */
