@@ -35,7 +35,7 @@ public class CopyOfMamaMiaPizzaria
     }
 
     // Dienste
-    public static void main(String[] args)
+    public static void main(String[] args) //Main used to launch an object
     {
         @SuppressWarnings("unused")
         CopyOfMamaMiaPizzaria main = new CopyOfMamaMiaPizzaria();
