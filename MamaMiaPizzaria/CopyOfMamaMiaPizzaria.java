@@ -1,4 +1,3 @@
-package MamaMiaPizzaria;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -15,7 +14,7 @@ public class CopyOfMamaMiaPizzaria
     // Liste von Objekten erstellen
     List<MyObject> objectList = new ArrayList<>();
     
-    MyObject inputObject;
+    MyObject inputObject, outputObject;
     
     // Attribute
     String anschrift_name;
@@ -28,9 +27,6 @@ public class CopyOfMamaMiaPizzaria
     public CopyOfMamaMiaPizzaria()
     {
         fenster = new CopyOfDisplay("Pizzeria Traditore", this);
-        fenster();
-        fill_list();
-        
         start();
     }
 
@@ -44,6 +40,7 @@ public class CopyOfMamaMiaPizzaria
     public void fenster()
     {
         fenster.prompt("Name", "HungrigerTörke da Firenze");
+        fenster.prompt("Passwort", "DeinPasswort");
         fenster.prompt("Bestellung", "Deportare Zaino"); // Abschieberucksack
         fenster.prompt("Lieferadresse", "Florenz");
     }
@@ -51,7 +48,7 @@ public class CopyOfMamaMiaPizzaria
     public void fill_list()
     {
         // Alle Objekte der Speisekarte
-        objectList.add(new MyObject("Deportare Zaino", 69.69));
+        objectList.add(new MyObject("Deportare Zaino", 420.69));
         objectList.add(new MyObject("Pizza", 12.90));
         objectList.add(new MyObject("Pasta", 8.90));
         objectList.add(new MyObject("Pommes", 3.90));
@@ -59,6 +56,9 @@ public class CopyOfMamaMiaPizzaria
 
     public void start()
     {
+        fenster();
+        fill_list();
+        
         bestellung = 0;
         while(bestellung < 10)
         {
@@ -70,23 +70,23 @@ public class CopyOfMamaMiaPizzaria
             
             inputObject = new MyObject(bestellungsname);
             
-            exe();
+            bestellen();
         }
     }
 
-    public void exe()
+    public void bestellen()
     {
         fenster.println("Auftrag \"" + bestellungsname +
                         "\" für \"" + anschrift_name +
                         "\" in Bearbeitung nach \"" + lieferadresse +
                         "\". \n");
         
-        if (objectList.contains(inputObject)) {
+        if(objectList.contains(inputObject)) {
+            for(int i = 0; i < objectList.size(); i++) { if(inputObject.getName().equals(objectList.get(i).getName())){outputObject = objectList.get(i);} }
             if(bestellungsname.equals("Deportare Zaino"))
             {
-                fenster.println("Du kleiner Törke du! Tss tss tss...");
-                fenster.println("Zu faul etwas einzugeben? Tss tss tss...\n");
-            
+                fenster.println("Du kleiner Törke du! Tss tss tss...\n" + 
+                                "Zu faul etwas einzugeben? Tss tss tss...\n");
             } else { // Lässt nun das essen kochen
                 
                 fenster.println("Wird zubereitet...\n");
@@ -101,20 +101,23 @@ public class CopyOfMamaMiaPizzaria
     {
         fenster.println("Am kochen (" + bestellungsname + ") ...");
         // An Koch weitergeben
-        fenster.println("Das macht 35 € bitte! \n");
+        fenster.println("Das macht " + outputObject.getAttribute() + "0€ bitte! \n");
     }
     
     public void login()
     {
-        fenster.println("Login successful!");
-        fenster.println(" ");
+        fenster.println("Login successful! \n");
     }
 
     public void speisekarte()
     {
         fenster.println("Speisekarte:");
         int index = 1;
-        for(MyObject myobject : objectList){fenster.println(index + ". " + myobject.getName() + ", Preis: " + myobject.getAttribute());}
+        for(MyObject myobject : objectList)
+        {
+            fenster.println(index + ". " + myobject.getName() + ", Preis: " + myobject.getAttribute());
+            index++;
+        }
         fenster.println(" ");
     }
     

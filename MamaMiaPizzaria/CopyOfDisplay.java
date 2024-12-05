@@ -1,4 +1,3 @@
-package MamaMiaPizzaria;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.TextField;
@@ -68,7 +67,7 @@ public class CopyOfDisplay extends JFrame implements ActionListener
     
     public void actionPerformed(ActionEvent e)
     {
-        if (e.getSource() == okButton)
+        if (e.getSource() == okButton) //Bestellen Button
         { // Monitor fuer den Beobachter kann verlassen werden.
             okWatcher.ready();
         }
