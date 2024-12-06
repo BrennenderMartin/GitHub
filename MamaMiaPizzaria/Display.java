@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-public class CopyOfDisplay extends JFrame implements ActionListener
+public class Display extends JFrame implements ActionListener
 {
     private static final long serialVersionUID = 1L;
     /*
@@ -37,7 +37,7 @@ public class CopyOfDisplay extends JFrame implements ActionListener
      * umgestellt auf Swing<br>     */
     private String title;
     private CopyOfMamaMiaPizzaria mainProgram; // Referenz zum Hauptprogramm
-    public CopyOfDisplay(String t, CopyOfMamaMiaPizzaria mainProgram) {
+    public Display(String t, CopyOfMamaMiaPizzaria mainProgram) {
         this.title = t;             // Titel setzen
         this.mainProgram = mainProgram; // Hauptprogramm-Referenz speichern
         initializeDisplay();        // Fenster initialisieren
@@ -306,31 +306,31 @@ public class CopyOfDisplay extends JFrame implements ActionListener
     
             // Bestellen-Knopf
             okButton = new JButton("Bestellen");
-            okButton.addActionListener(CopyOfDisplay.this);
+            okButton.addActionListener(Display.this);
             okButton.setEnabled(false);
             p.add("Center", okButton);
             
             // login-Knopf
             loginButton = new JButton("LogIn");
-            loginButton.addActionListener(CopyOfDisplay.this);
+            loginButton.addActionListener(Display.this);
             loginButton.setEnabled(true);
             p.add("North", loginButton);
 
             // Speisekarte-Knopf
             speisekarteButton = new JButton("Speisekarte");
-            speisekarteButton.addActionListener(CopyOfDisplay.this);
+            speisekarteButton.addActionListener(Display.this);
             speisekarteButton.setEnabled(true);
             p.add("West", speisekarteButton);
     
             // Bezahlen-Knopf
             bezahlenButton = new JButton("Bezahlen");
-            bezahlenButton.addActionListener(CopyOfDisplay.this);
+            bezahlenButton.addActionListener(Display.this);
             bezahlenButton.setEnabled(true);
             p.add("East", bezahlenButton);
     
             // Ende-Knopf
             closeButton = new JButton("Ende");
-            closeButton.addActionListener(CopyOfDisplay.this);
+            closeButton.addActionListener(Display.this);
             closeButton.setEnabled(true);
             p.add("South", closeButton);
     

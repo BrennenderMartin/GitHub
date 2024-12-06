@@ -1,4 +1,3 @@
- 
 /**
  * Class created by ChatGPT, to have a Object,
  * which can be compared in a list,
@@ -19,8 +18,7 @@ public class MyObject
         this.attribute = 0.0;
     }
     
-    public static void main(String[] args)
-    { //Just a small test how this method works
+    public static void main(String[] args) { //Just a small test how this method works
         MyObject object = new MyObject("Klaus", 420.69);
         System.out.println(object);
     }

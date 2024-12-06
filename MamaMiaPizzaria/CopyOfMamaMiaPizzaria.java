@@ -20,33 +20,32 @@ public class CopyOfMamaMiaPizzaria
     String anschrift_name;
     String bestellungsname;
     String lieferadresse;
+
+    String username;
+    String password;
     
     int bestellung;
     
     // Konstruktor
-    public CopyOfMamaMiaPizzaria()
-    {
+    public CopyOfMamaMiaPizzaria() {
         fenster = new CopyOfDisplay("Pizzeria Traditore", this);
         start();
     }
 
     // Dienste
-    public static void main(String[] args) //Main used to launch an object
-    {
+    public static void main(String[] args) { //Main used to launch an object
         @SuppressWarnings("unused")
         CopyOfMamaMiaPizzaria main = new CopyOfMamaMiaPizzaria();
     }
 
-    public void fenster()
-    {
+    public void fenster() {
         fenster.prompt("Name", "HungrigerTörke da Firenze");
         fenster.prompt("Passwort", "DeinPasswort");
         fenster.prompt("Bestellung", "Deportare Zaino"); // Abschieberucksack
         fenster.prompt("Lieferadresse", "Florenz");
     }
 
-    public void fill_list()
-    {
+    public void fill_list() {
         // Alle Objekte der Speisekarte
         objectList.add(new MyObject("Deportare Zaino", 420.69));
         objectList.add(new MyObject("Pizza", 12.90));
@@ -54,8 +53,7 @@ public class CopyOfMamaMiaPizzaria
         objectList.add(new MyObject("Pommes", 3.90));
     }
 
-    public void start()
-    {
+    public void start() {
         fenster();
         fill_list();
         
@@ -74,8 +72,7 @@ public class CopyOfMamaMiaPizzaria
         }
     }
 
-    public void bestellen()
-    {
+    public void bestellen() {
         fenster.println("Auftrag \"" + bestellungsname +
                         "\" für \"" + anschrift_name +
                         "\" in Bearbeitung nach \"" + lieferadresse +
@@ -83,12 +80,10 @@ public class CopyOfMamaMiaPizzaria
         
         if(objectList.contains(inputObject)) {
             for(int i = 0; i < objectList.size(); i++) { if(inputObject.getName().equals(objectList.get(i).getName())){outputObject = objectList.get(i);} }
-            if(bestellungsname.equals("Deportare Zaino"))
-            {
-                fenster.println("Du kleiner Törke du! Tss tss tss...\n" + 
+            if(bestellungsname.equals("Deportare Zaino")) {
+                fenster.println("Du kleiner Törke du! Tss tss tss...\n" +
                                 "Zu faul etwas einzugeben? Tss tss tss...\n");
             } else { // Lässt nun das essen kochen
-                
                 fenster.println("Wird zubereitet...\n");
                 
                 kochen(bestellungsname);
@@ -97,20 +92,19 @@ public class CopyOfMamaMiaPizzaria
         } else {fenster.println("Tippfehler oder nicht auf der Karte, bitte neu bestellen\n");}
     }
     
-    public void kochen(String bestellungsname)
-    {
+    public void kochen(String bestellungsname) {
         fenster.println("Am kochen (" + bestellungsname + ") ...");
         // An Koch weitergeben
         fenster.println("Das macht " + outputObject.getAttribute() + "0€ bitte! \n");
     }
     
-    public void login()
-    {
-        fenster.println("Login successful! \n");
+    public void login() {
+        new StartFrame();
+        User user = new User(username, password);
+        System.out.println(user);
     }
 
-    public void speisekarte()
-    {
+    public void speisekarte() {
         fenster.println("Speisekarte:");
         int index = 1;
         for(MyObject myobject : objectList)
@@ -121,8 +115,7 @@ public class CopyOfMamaMiaPizzaria
         fenster.println(" ");
     }
     
-    public void bezahlen()
-    {
+    public void bezahlen() {
         bestellung--;
         fenster.println("Vielen Dank für Ihren Einkauf!");
         fenster.println("Der Bezahlvorgang ist abgeschlossen. \n");
