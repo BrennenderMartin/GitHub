@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class RegisterFrame extends JFrame {
 
-    private static HashMap<String, String> users = new HashMap<>(); // Speicherung der Benutzerdaten
+    public static HashMap<String, String> users = new HashMap<>(); // Speicherung der Benutzerdaten
 
     private JTextField usernameField;
     private JPasswordField passwordField;

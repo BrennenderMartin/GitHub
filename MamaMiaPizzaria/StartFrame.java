@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 public class StartFrame extends JFrame {
 
@@ -35,6 +36,7 @@ public class StartFrame extends JFrame {
 
         // Aktion: Öffnet das Login-Fenster
         loginButton.addActionListener(_ -> {
+            //checkUsers();
             new LoginFrame();
             dispose(); // Schließt das aktuelle Fenster
         });
@@ -46,7 +48,9 @@ public class StartFrame extends JFrame {
         });
 
         // Aktion: Beendet die Anwendung
-        closeButton.addActionListener(_ -> System.exit(0));
+        closeButton.addActionListener(_ -> {
+            dispose();
+        });
 
         // Buttons zum Fenster hinzufügen
         add(Box.createVerticalGlue()); // Platzhalter für flexiblen Abstand (oben)
@@ -60,6 +64,15 @@ public class StartFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Zentriert das Fenster
         setVisible(true);
+
+        CopyOfMamaMiaPizzaria.setUsers();
+    }
+
+    @SuppressWarnings("unused")
+    private static void checkUsers() {
+        for (HashMap.Entry<String, String> entry : RegisterFrame.users.entrySet()) {
+            System.out.println("Username: " + entry.getKey() + ", Password: " + entry.getValue());
+        }
     }
 
     public static void main(String[] args) {

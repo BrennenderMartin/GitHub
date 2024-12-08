@@ -7,7 +7,7 @@ public class LoginFrame extends JFrame {
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JLabel messageLabel;
-    User user;
+    public static User user;
     
     public LoginFrame() {
         super("Anmelden");
@@ -70,7 +70,7 @@ public class LoginFrame extends JFrame {
             messageLabel.setForeground(Color.GREEN);
             messageLabel.setText("Login erfolgreich!");
             user = new User(username, password);
-            System.out.println(user);
+            System.out.println("LoginFrame" + user);
         } else {
             messageLabel.setForeground(Color.RED);
             messageLabel.setText("Ungültige Anmeldedaten!");
