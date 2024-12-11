@@ -20,6 +20,7 @@ public class CopyOfMamaMiaPizzaria {
     String lieferadresse;
     
     int bestellung;
+    boolean aktive_bestellung;
     
     public CopyOfMamaMiaPizzaria() { // Konstruktor
         fenster = new CopyOfDisplay("Pizzeria Traditore", this);
@@ -82,6 +83,7 @@ public class CopyOfMamaMiaPizzaria {
                                 "Zu faul etwas einzugeben? Tss tss tss...\n");
             } else { // Lässt nun das essen kochen
                 fenster.println("Wird zubereitet...\n");
+                aktive_bestellung = true;
                 kochen(bestellungsname);
             }
         } else {
@@ -98,6 +100,7 @@ public class CopyOfMamaMiaPizzaria {
     // Public Methodes:
     public static void setUsers() { // setup for all possible Users (Used in StartFrame)
         RegisterFrame.users.put("admin", "123");
+        RegisterFrame.users.put("DrDoubleNo76", "hackermann123");
         RegisterFrame.users.put("Törke", "42069");
         RegisterFrame.users.put("user", "1234");
         RegisterFrame.users.put("w", "3");
@@ -124,9 +127,14 @@ public class CopyOfMamaMiaPizzaria {
     }
     
     public void bezahlen() { // method for: bezahlen button
-        bestellung--;
-        fenster.println("Vielen Dank für Ihren Einkauf!");
-        fenster.println("Der Bezahlvorgang ist abgeschlossen. \n");
+        if(aktive_bestellung == true) {
+            bestellung--;
+            fenster.println("Vielen Dank für Ihren Einkauf!");
+            fenster.println("Der Bezahlvorgang ist abgeschlossen. \n");
+        } else {
+            fenster.println("Keine gültige aktive Bestellung");
+        }
+        aktive_bestellung = false;
     }
 
     @Override
