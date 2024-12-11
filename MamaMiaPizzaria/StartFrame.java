@@ -65,7 +65,7 @@ public class StartFrame extends JFrame {
         setLocationRelativeTo(null); // Zentriert das Fenster
         setVisible(true);
 
-        CopyOfMamaMiaPizzaria.setUsers();
+        MamaMiaPizzaria.setUsers();
     }
 
     @SuppressWarnings("unused")

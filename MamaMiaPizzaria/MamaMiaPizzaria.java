@@ -5,9 +5,9 @@ import java.util.List;
  *
  * @author: base made by Fischi, edited by Luis and Mattis
  */
-public class CopyOfMamaMiaPizzaria {
+public class MamaMiaPizzaria {
     // Bezugsobjekte
-    CopyOfDisplay fenster;
+    Display fenster;
     
     // Liste von Objekten erstellen
     List<MyObject> objectList = new ArrayList<>();
@@ -22,15 +22,15 @@ public class CopyOfMamaMiaPizzaria {
     int bestellung;
     boolean aktive_bestellung;
     
-    public CopyOfMamaMiaPizzaria() { // Konstruktor
-        fenster = new CopyOfDisplay("Pizzeria Traditore", this);
+    public MamaMiaPizzaria() { // Konstruktor
+        fenster = new Display("Pizzeria Traditore", this);
         start();
     }
 
     // Main
     public static void main(String[] args) { // Main used to launch an object
         @SuppressWarnings("unused")
-        CopyOfMamaMiaPizzaria main = new CopyOfMamaMiaPizzaria();
+        MamaMiaPizzaria main = new MamaMiaPizzaria();
     }
 
     // Private Methodes:

@@ -18,12 +18,12 @@ public class Display extends JFrame implements ActionListener
 {
     private static final long serialVersionUID = 1L;
     /*
-     * CopyOfDisplay by J M Bishop July 1999********* is a simple class that provides
+     * Display by J M Bishop July 1999********* is a simple class that provides
      * facilities for input and output on a window. The data values are entered
      * in boxes in the input section. Different data choices can be entered if
      * the driving program asks for them. There is an optional integration with
-     * the Graph class Interface ========= new CopyOfDisplay (title) - sets up a new
-     * CopyOfDisplay object with a title println (string) - prints a string in the
+     * the Graph class Interface ========= new Display (title) - sets up a new
+     * Display object with a title println (string) - prints a string in the
      * output section prompt (label, value) - sets a box in the input section
      * with the given label ready (message) - prints a message then enables
      * reading from the boxes getDouble (label) - reads the double value that
@@ -36,8 +36,8 @@ public class Display extends JFrame implements ActionListener
      * entkoppelt von Text und Graph<br>
      * umgestellt auf Swing<br>     */
     private String title;
-    private CopyOfMamaMiaPizzaria mainProgram; // Referenz zum Hauptprogramm
-    public Display(String t, CopyOfMamaMiaPizzaria mainProgram) {
+    private MamaMiaPizzaria mainProgram; // Referenz zum Hauptprogramm
+    public Display(String t, MamaMiaPizzaria mainProgram) {
         this.title = t;             // Titel setzen
         this.mainProgram = mainProgram; // Hauptprogramm-Referenz speichern
         initializeDisplay();        // Fenster initialisieren
