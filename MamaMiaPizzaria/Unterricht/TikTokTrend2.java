@@ -1,9 +1,8 @@
-package Unterricht;
 // TikTokTrend:
-// Eine Zahl kann immer zur 1 umgeformt werden! 
-// Dazu muss man nur folgende Rechnungen durchführen: 
+// Eine Zahl kann immer zur 1 umgeformt werden!
+// Dazu muss man nur folgende Rechnungen durchführen:
 // wenn sie gerade ist: mit 2 dividieren
-// wenn sie ungerade ist: mit 3 multipliziert und +1 addiert, 
+// wenn sie ungerade ist: mit 3 multipliziert und +1 addiert,
 
 public class TikTokTrend2
 {
@@ -16,7 +15,6 @@ public class TikTokTrend2
         
         trend();
         
-        
         //Erweiterung:
         //Für die Zahlen von 2 bis 1000 - bei welcher Zahl müssen am meisten Rechnungen durchgeführt werden?
     }
@@ -26,36 +24,43 @@ public class TikTokTrend2
         TikTokTrend2 main = new TikTokTrend2();
     }
     
-    // Code von letzter Woche: 
-    public void trend()
-    {
+    // Code von letzter Woche:
+    public void trend() {
+
         int zahl = 0;
-        int max_operations = 0;
-        for(int i = 2; i <= 100000; i++) {
+        int max_op = 0;
+        int min_op = 420;
+
+        int max_co = 0;
+        int min_co = 0;
+
+        for(int i = 2; i <= 1000; i++) {
             int counter = 0;
             zahl = i;
-            System.out.println("Prüfe die Zahl " + zahl);
+            //System.out.println("Prüfe die Zahl " + zahl);
         
-            while (zahl != 1)
-            {
+            while (zahl != 1) {
                 counter++;
-                if( zahl%2 == 0 )   //Gerade
-                {
+                if( zahl%2 == 0 ) {  //Gerade
                     zahl /= 2;
-                }
-                else                //Ungerade
-                {
+                } else {             //Ungerade
                     zahl *= 3;
                     zahl++;
                 }
-                //System.out.println(zahl); //Solltest du auskommentieren!
-                if(counter > max_operations) {
-                    max_operations = i;
-                }
             }
-
+            if(counter > max_op) {
+                max_op = i;
+                max_co = counter;
+            }
+            if(counter < min_op) {
+                min_op = i;
+                min_co = counter;
+            }
         }
-        System.out.println(max_operations);
+        System.out.println( " Größte Zahl: " + max_op +
+                            " Anzahl Oper: " + max_co);
+        System.out.println( " Kleinste Zahl: " + min_op +
+                            " Anzahl Operat: " + min_co);
     }
 
 }
