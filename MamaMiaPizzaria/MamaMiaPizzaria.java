@@ -29,8 +29,7 @@ public class MamaMiaPizzaria {
 
     // Main
     public static void main(String[] args) { // Main used to launch an object
-        @SuppressWarnings("unused")
-        MamaMiaPizzaria main = new MamaMiaPizzaria();
+        new MamaMiaPizzaria();
     }
 
     // Private Methodes:

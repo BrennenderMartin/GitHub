@@ -13,12 +13,11 @@ public class alphatest {
     }
 
     public static void main(String[] args) {
-        @SuppressWarnings("unused")
-        alphatest main = new alphatest();
+        new alphatest();
     }
 
     private void main() {
-        System.out.println("\n Final tests complete... Ready to run any Programm! :) \n");
+        System.out.println("\n Final tests complete... Ready to run any Programms in Java! :) \n");
     }
 
 }
