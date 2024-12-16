@@ -41,7 +41,7 @@ public class TikTokTrend2
         
             while (zahl != 1) {
                 counter++;
-                if( zahl%2 == 0 ) {  //Gerade
+                if( zahl % 2 == 0 ) {  //Gerade
                     zahl /= 2;
                 } else {             //Ungerade
                     zahl *= 3;
@@ -58,9 +58,9 @@ public class TikTokTrend2
             }
         }
         System.out.println( " Größte Zahl: " + max_op +
-                            " Anzahl Oper: " + max_co);
+                            " Anzahl Operationen: " + max_co);
         System.out.println( " Kleinste Zahl: " + min_op +
-                            " Anzahl Operat: " + min_co);
+                            " Anzahl Operationen: " + min_co);
     }
 
 }
