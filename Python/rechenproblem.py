@@ -9,7 +9,7 @@ min_op = 420
 max_co = 0
 min_co = 0
 
-for i in range(1000):
+for i in range(2,1000):
     counter = 0
     zahl = i
 
@@ -20,7 +20,6 @@ for i in range(1000):
         else:
             zahl *= 3
             zahl += 1
-    print(zahl)
     if counter > max_op:
         max_op = i
         max_co = counter
@@ -29,12 +28,12 @@ for i in range(1000):
         min_op = i
         min_co = counter
 
-print( " Größte Zahl: " + max_op +" Anzahl Operationen: " + max_co)
-print( " Kleinste Zahl: " + min_op + " Anzahl Operationen: " + min_co)
-    
+print(f" Größte Zahl: {max_op} Anzahl Operationen: {max_co}")
+print(f" Kleinste Zahl: {min_op} Anzahl Operationen: {min_co}")
 
 
-"""
+
+
 zahl = int(input("Gib eine Zahl ein: "))
 counter = 0
 
@@ -44,7 +43,6 @@ while zahl != 1:
     else:
         zahl = zahl * 3 + 1
     counter += 1
-    print(f"Die Zahl beträgr gerade. {zahl}")
+    print(f"Die Zahl beträgt gerade: {zahl}")
 
 print(f"Die gegebene Zahl benötigt {counter} Durchgänge")
-"""
