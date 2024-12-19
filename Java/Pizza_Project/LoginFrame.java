@@ -1,17 +1,18 @@
+package Pizza_Project;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 
-public class RegisterFrame extends JFrame {
-
-    public static HashMap<String, String> users = new HashMap<>(); // Speicherung der Benutzerdaten
+public class LoginFrame extends JFrame {
 
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JLabel messageLabel;
-
-    public RegisterFrame() {
-        super("Registrieren");
+    public static User user;
+    
+    public LoginFrame() {
+        super("Anmelden");
 
         // Layout
         setLayout(new BorderLayout());
@@ -33,19 +34,19 @@ public class RegisterFrame extends JFrame {
 
         // Buttons
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        JButton registerButton = new JButton("Registrieren");
+        JButton loginButton = new JButton("Anmelden");
         JButton backButton = new JButton("Zurück");
 
-        // Registrierung
-        registerButton.addActionListener(e -> handleRegister());
+        // Anmeldung
+        loginButton.addActionListener(_ -> handleLogin());
 
         // Zurück zum Hauptfenster
-        backButton.addActionListener(e -> {
+        backButton.addActionListener(_ -> {
             new StartFrame();
             dispose();
         });
 
-        buttonPanel.add(registerButton);
+        buttonPanel.add(loginButton);
         buttonPanel.add(backButton);
 
         // Hinzufügen zu JFrame
@@ -60,23 +61,21 @@ public class RegisterFrame extends JFrame {
         setVisible(true);
     }
 
-    private void handleRegister() {
+    private void handleLogin() {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
 
-        // Validierung der Eingabe
-        if (username.isEmpty() || password.isEmpty()) {
-            messageLabel.setText("Bitte füllen Sie alle Felder aus!");
-        } else if (users.containsKey(username)) {
-            messageLabel.setText("Benutzername existiert bereits!");
-        } else {
-            users.put(username, password); // Benutzer speichern
-            messageLabel.setForeground(Color.GREEN);
-            messageLabel.setText("Registrierung erfolgreich!");
-        }
-    }
+        HashMap<String, String> users = RegisterFrame.getUsers();
 
-    public static HashMap<String, String> getUsers() {
-        return users;
+        // Validierung
+        if (users.containsKey(username) && users.get(username).equals(password)) {
+            messageLabel.setForeground(Color.GREEN);
+            messageLabel.setText("Login erfolgreich!");
+            user = new User(username, password);
+            System.out.println("LoginFrame" + user);
+        } else {
+            messageLabel.setForeground(Color.RED);
+            messageLabel.setText("Ungültige Anmeldedaten!");
+        }
     }
 }

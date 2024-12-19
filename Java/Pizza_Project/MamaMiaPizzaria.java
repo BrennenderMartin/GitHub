@@ -1,5 +1,8 @@
+package Pizza_Project;
+
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Die Pizzeria
  *
@@ -8,20 +11,20 @@ import java.util.List;
 public class MamaMiaPizzaria {
     // Bezugsobjekte
     Display fenster;
-    
+
     // Liste von Objekten erstellen
     List<MyObject> objectList = new ArrayList<>();
-    
+
     MyObject inputObject, outputObject;
-    
+
     // Attribute
     String anschrift_name;
     String bestellungsname;
     String lieferadresse;
-    
+
     int bestellung;
     boolean aktive_bestellung;
-    
+
     public MamaMiaPizzaria() { // Konstruktor
         fenster = new Display("Pizzeria Traditore", this);
         start();
@@ -36,17 +39,17 @@ public class MamaMiaPizzaria {
     private void start() { // Setup-main, so the constructor looks nicer
         fenster();
         fill_list();
-        
+
         bestellung = 0;
-        while(bestellung < 10) {
+        while (bestellung < 10) {
             bestellung++;
             fenster.ready("Taste \"Bestellen\" drücken, wenn alle Werte eingeben. \n");
             anschrift_name = fenster.getString("Name");
             bestellungsname = fenster.getString("Bestellung");
             lieferadresse = fenster.getString("Lieferadresse");
-            
+
             inputObject = new MyObject(bestellungsname);
-            
+
             bestellen();
         }
     }
@@ -67,19 +70,19 @@ public class MamaMiaPizzaria {
 
     private void bestellen() { // used, as "main" after all the setup
         fenster.println("Auftrag \"" + bestellungsname +
-                        "\" für \"" + anschrift_name +
-                        "\" in Bearbeitung nach \"" + lieferadresse +
-                        "\". \n");
-        
-        if(objectList.contains(inputObject)) {
-            for(int i = 0; i < objectList.size(); i++) {
-                if(inputObject.getName().equals(objectList.get(i).getName())) {
+                "\" für \"" + anschrift_name +
+                "\" in Bearbeitung nach \"" + lieferadresse +
+                "\". \n");
+
+        if (objectList.contains(inputObject)) {
+            for (int i = 0; i < objectList.size(); i++) {
+                if (inputObject.getName().equals(objectList.get(i).getName())) {
                     outputObject = objectList.get(i);
                 }
             }
-            if(bestellungsname.equals("Deportare Zaino")) {
+            if (bestellungsname.equals("Deportare Zaino")) {
                 fenster.println("Du kleiner Törke du! Tss tss tss...\n" +
-                                "Zu faul etwas einzugeben? Tss tss tss...\n");
+                        "Zu faul etwas einzugeben? Tss tss tss...\n");
             } else { // Lässt nun das essen kochen
                 fenster.println("Wird zubereitet...\n");
                 aktive_bestellung = true;
@@ -89,7 +92,7 @@ public class MamaMiaPizzaria {
             fenster.println("Tippfehler oder nicht auf der Karte, bitte neu bestellen\n");
         }
     }
-    
+
     private void kochen(String bestellungsname) { // just gives outputs
         fenster.println("Am kochen (" + bestellungsname + ") ...");
         // An Koch weitergeben
@@ -107,7 +110,7 @@ public class MamaMiaPizzaria {
 
     public void login() { // method for: LogIn button
         new StartFrame();
-        if(LoginFrame.user != null) {
+        if (LoginFrame.user != null) {
             System.out.println("main: " + LoginFrame.user);
             fenster.prompt("Username", LoginFrame.user.getUsername());
         } else {
@@ -118,15 +121,15 @@ public class MamaMiaPizzaria {
     public void speisekarte() { // method for: Speisekarte button
         fenster.println("Speisekarte:");
         int index = 1;
-        for(MyObject myobject : objectList) {
+        for (MyObject myobject : objectList) {
             fenster.println(index + ". " + myobject.getName() + ", Preis: " + myobject.getAttribute());
             index++;
         }
         fenster.println(" ");
     }
-    
+
     public void bezahlen() { // method for: bezahlen button
-        if(aktive_bestellung == true) {
+        if (aktive_bestellung == true) {
             bestellung--;
             fenster.println("Vielen Dank für Ihren Einkauf!");
             fenster.println("Der Bezahlvorgang ist abgeschlossen. \n");
@@ -137,7 +140,8 @@ public class MamaMiaPizzaria {
     }
 
     @Override
-    public String toString() { //Eig macht das nicht aber kb das zu löschen und wenn ich das mal verstehe kann das glaub ich mega gut sein
+    public String toString() { // Eig macht das nicht aber kb das zu löschen und wenn ich das mal verstehe kann
+                               // das glaub ich mega gut sein
         return "Hurensohn";
     }
 }

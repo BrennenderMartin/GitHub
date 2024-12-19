@@ -1,3 +1,5 @@
+package Pizza_Project;
+
 /**
  * Class created by ChatGPT, to have a Object,
  * which can be compared in a list,

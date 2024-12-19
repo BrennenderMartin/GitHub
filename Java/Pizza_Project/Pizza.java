@@ -1,3 +1,5 @@
+package Pizza_Project;
+
 public class Pizza {
     int durchmesser;
     String belag;

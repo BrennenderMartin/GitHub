@@ -1,3 +1,5 @@
+package Pizza_Project;
+
 /**
  * Same shit as MyObject, just renamed everything
  */

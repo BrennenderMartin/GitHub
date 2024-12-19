@@ -1,3 +1,5 @@
+package Pizza_Project;
+
 /**
  * Just a small programm, because Java is
  * alwasy taking ages to get running, so

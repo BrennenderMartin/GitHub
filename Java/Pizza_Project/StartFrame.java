@@ -1,3 +1,5 @@
+package Pizza_Project;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -35,20 +37,20 @@ public class StartFrame extends JFrame {
         closeButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
         // Aktion: Öffnet das Login-Fenster
-        loginButton.addActionListener(e -> {
+        loginButton.addActionListener(_ -> {
             //checkUsers();
             new LoginFrame();
             dispose(); // Schließt das aktuelle Fenster
         });
 
         // Aktion: Öffnet das Registrierungs-Fenster
-        registerButton.addActionListener(e -> {
+        registerButton.addActionListener(_ -> {
             new RegisterFrame();
             dispose(); // Schließt das aktuelle Fenster
         });
 
         // Aktion: Beendet die Anwendung
-        closeButton.addActionListener(e -> {
+        closeButton.addActionListener(_ -> {
             dispose();
         });
 
