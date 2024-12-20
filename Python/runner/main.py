@@ -33,8 +33,7 @@ tick_counter = 0
 font = pg.font.Font(None, 20)
 
 def render_lines(x, y):
-    c.speed = round(c.speed, 1)
-    text= f"Score: {c.score} \nRate: {c.rate} \nSpeed: {c.speed}" #inactive: \nActive: {c.active}
+    text= f"Score: {c.score} \nRate: {c.rate} \nSpeed: {c.speed: .1f}" #inactive: \nActive: {c.active}
     lines = text.split('\n')
     line_height = 30
     for line in lines:
