@@ -8,7 +8,7 @@ SCREEN_HEIGHT = 400
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Working with Rectangles")
 
-soldier = pygame.image.load("Python/Tutorials/ssoldier.png").convert_alpha()
+soldier = pygame.image.load("Python/Tutorials/soldier.png").convert_alpha()
 
 rect_1 = pygame.Rect(200, 100, 150, 100)
 
