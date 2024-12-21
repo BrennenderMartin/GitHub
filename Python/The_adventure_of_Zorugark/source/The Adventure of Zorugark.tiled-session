@@ -9,11 +9,11 @@
     ],
     "fileStates": {
         "Zorugark.tmx": {
-            "scale": 39.840624999999996,
-            "selectedLayer": 4,
+            "scale": 40,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 7.253902266844459,
-                "y": 7.994352498235156
+                "x": 7.250000000000002,
+                "y": 7.987500000000001
             }
         },
         "map.tmx": {
