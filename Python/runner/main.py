@@ -7,14 +7,14 @@ import random as r
 import pygame as pg
 
 """Important settings for user"""
-background_path = "Python/runner/images/background.png"
+background_path = "Python/runner/images/test.png"
 player_pos = (c.SCREEN_WIDTH / 2, c.SCREEN_HEIGHT / 4)
 
 screen = pg.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
 pg.display.set_caption("Fishies Runner")
 
 background_image = pg.image.load(background_path)
-background_image = pg.transform.scale(background_image, (c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
+#background_image = pg.transform.scale(background_image, (c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
 
 pg.init()
 
