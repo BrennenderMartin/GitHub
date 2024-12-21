@@ -1,0 +1,61 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Zorugark.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "Zorugark.tmx": {
+            "scale": 39.840624999999996,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 7.253902266844459,
+                "y": 7.994352498235156
+            }
+        },
+        "map.tmx": {
+            "scale": 0.6090885416666666,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 959.6305955791186,
+                "y": 639.4800974817223
+            }
+        },
+        "medieval_tilesheet.tsx": {
+            "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "roguelikeChar_transparent.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/matti/Documents/GitHub/GitHub/Python/The_adventure_of_Zorugark/source/images",
+    "map.height": 1,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 1,
+    "openFiles": [
+        "map.tmx",
+        "Zorugark.tmx"
+    ],
+    "project": "The Adventure of Zorugark.tiled-project",
+    "recentFiles": [
+        "map.tmx",
+        "Zorugark.tmx",
+        "medieval_tilesheet.tsx",
+        "roguelikeChar_transparent.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 1,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

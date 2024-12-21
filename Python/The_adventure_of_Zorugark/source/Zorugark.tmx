@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="1" height="1" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" source="roguelikeChar_transparent.tsx"/>
+ <layer id="1" name="Kachelebene 1" width="1" height="1">
+  <data encoding="csv">
+163
+</data>
+ </layer>
+ <layer id="2" name="Kachelebene 2" width="1" height="1">
+  <data encoding="csv">
+4
+</data>
+ </layer>
+ <layer id="3" name="Kachelebene 3" width="1" height="1">
+  <data encoding="csv">
+287
+</data>
+ </layer>
+ <layer id="4" name="Kachelebene 4" width="1" height="1">
+  <data encoding="csv">
+467
+</data>
+ </layer>
+ <layer id="5" name="Kachelebene 5" width="1" height="1">
+  <data encoding="csv">
+531
+</data>
+ </layer>
+</map>
