@@ -12,22 +12,22 @@ while p.run:
     v.clock.tick(p.FPS)
     v.screen.fill(p.BG)
     
-    v.screen.blit(v.background_image, (0, 0))
+    
+    # Tasten abfragen
+    keys = pg.key.get_pressed()
+    scroll_x, scroll_y = v.player.update(keys, p.bg_offset_x, p.bg_offset_y)
+
+    # Hintergrund-Offset aktualisieren
+    p.bg_offset_x += scroll_x
+    p.bg_offset_y += scroll_y
+    
+    v.screen.blit(v.background_image, (-p.bg_offset_x, -p.bg_offset_y))
+    
+    pg.draw.circle(v.screen, p.BLACK, (0, 0), 320)
     
     #functions (f)
     f.draw()
-    f.update()
-    
-    #movement and keypresses
-    key = pg.key.get_pressed()
-    if key[pg.K_a] == True:
-        v.player.rect.move_ip(-p.player_speed, 0)
-    if key[pg.K_d] == True:
-        v.player.rect.move_ip(p.player_speed, 0)
-    if key[pg.K_w] == True:
-        v.player.rect.move_ip(0, -p.player_speed)
-    if key[pg.K_s] == True:
-        v.player.rect.move_ip(0, p.player_speed)
+    #f.update()
     
     #event handler
     for event in pg.event.get():

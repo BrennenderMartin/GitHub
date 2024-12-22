@@ -2,20 +2,21 @@
 
 title = "The Adventures of Zorugark"
 
-screen_width = 918
-screen_height = 515
+SCREEN_WIDTH = 640
+SCREEN_HEIGHT = 640
 
 FPS = 60
 
 root = "Python/The_adventure_of_Zorugark/source/images/"
-path_bg = "rougelike"
+path_bg = "map"
 path_player = "Zorugark"
 path_zombie = "zombie_stand"
 
+player_x, player_y = SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2  # Startposition im Fenster
+
 player_speed = 2
 
-player_spawn = (400, 300)
-
+bg_offset_x, bg_offset_y = 0, 0
 
 """Constants and standart values"""
 #define the important stuff
