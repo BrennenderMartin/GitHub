@@ -39,4 +39,36 @@ class Player(pg.sprite.Sprite):
             if self.rect.y > p.SCREEN_HEIGHT // 2 and bg_offset_y < v.bg_height - p.SCREEN_HEIGHT:
                 self.rect.y = p.SCREEN_HEIGHT // 2
                 y += p.player_speed
+        
+        return x, y
+
+    def update2(self, keys, bg_offset_x, bg_offset_y):
+        char_speed = 5
+        x, y = bg_offset_x, bg_offset_y  # Startwerte der Offsets
+
+        # Tasten abfragen
+        if keys[pg.K_LEFT]:
+            x -= char_speed
+        if keys[pg.K_RIGHT]:
+            x += char_speed
+        if keys[pg.K_UP]:
+            y -= char_speed
+        if keys[pg.K_DOWN]:
+            y += char_speed
+
+        # Kollisionserkennung
+        for obstacle in v.obstacles:
+            obstacle_rect = obstacle.rect.move(-x, -y)
+            if self.rect.colliderect(obstacle_rect):
+                # Bewegung blockieren
+                if keys[pg.K_LEFT]:
+                    x = bg_offset_x
+                if keys[pg.K_RIGHT]:
+                    x = bg_offset_x
+                if keys[pg.K_UP]:
+                    y = bg_offset_y
+                if keys[pg.K_DOWN]:
+                    y = bg_offset_y
+
+        # Hintergrund-Offsets aktualisieren
         return x, y
