@@ -1,0 +1,4 @@
+Server Name: SURCONSTORAGE\MUSTERTRAINING
+Login: sa
+Passwort: admin4SQLServer
+Databasename: SIS_MasterTraining_HotStripMill

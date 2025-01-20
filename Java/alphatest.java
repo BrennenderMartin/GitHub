@@ -1,4 +1,6 @@
-package Pizza_Project;
+package Java;
+
+import java.util.Scanner;
 
 /**
  * Just a small programm, because Java is
@@ -9,17 +11,26 @@ package Pizza_Project;
  */
 
 public class alphatest {
+    public static void main(String[] args) {
+            new alphatest();
+        }
 
     public alphatest() {
         main();
     }
 
-    public static void main(String[] args) {
-        new alphatest();
-    }
-
     private void main() {
         System.out.println("\n Final tests complete... Ready to run any Programms in Java! :) \n");
+    }
+
+    @SuppressWarnings("unused")
+    private int scanner() {
+        int var;
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("text");
+            var = scanner.nextInt();
+        }
+        return var;
     }
 
 }

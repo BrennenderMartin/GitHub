@@ -7,7 +7,7 @@ SCREEN_HEIGHT = 600
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-player = pygame.image.load("Python/Tutorials/turret.png").convert_alpha()
+player = pygame.image.load("Python/Pygame/Tutorials/turret.png").convert_alpha()
 
 
 run = True
