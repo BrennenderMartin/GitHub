@@ -1,4 +1,6 @@
+"""install using following command: py -m pip install -r requirements.txt"""
 customtkinter
 CTkListbox
 numpy
 pandas
+dokusan

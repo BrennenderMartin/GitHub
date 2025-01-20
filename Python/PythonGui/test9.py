@@ -36,7 +36,7 @@ df = pd.DataFrame(daten)
 df.to_csv("Test8.csv", sep=";", index=False)
 
 """
- 
+
 daten = pd.read_csv("Test8.csv", sep=";")
 df = pd.DataFrame(daten)
 df.at[1, "DefectID"] = 9999
