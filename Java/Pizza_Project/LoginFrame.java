@@ -38,10 +38,10 @@ public class LoginFrame extends JFrame {
         JButton backButton = new JButton("Zurück");
 
         // Anmeldung
-        loginButton.addActionListener(_ -> handleLogin());
+        loginButton.addActionListener(e -> handleLogin());
 
         // Zurück zum Hauptfenster
-        backButton.addActionListener(_ -> {
+        backButton.addActionListener(e -> {
             new StartFrame();
             dispose();
         });

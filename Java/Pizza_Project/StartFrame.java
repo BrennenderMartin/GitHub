@@ -37,20 +37,20 @@ public class StartFrame extends JFrame {
         closeButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
         // Aktion: Öffnet das Login-Fenster
-        loginButton.addActionListener(_ -> {
+        loginButton.addActionListener(e -> {
             //checkUsers();
             new LoginFrame();
             dispose(); // Schließt das aktuelle Fenster
         });
 
         // Aktion: Öffnet das Registrierungs-Fenster
-        registerButton.addActionListener(_ -> {
+        registerButton.addActionListener(e -> {
             new RegisterFrame();
             dispose(); // Schließt das aktuelle Fenster
         });
 
         // Aktion: Beendet die Anwendung
-        closeButton.addActionListener(_ -> {
+        closeButton.addActionListener(e -> {
             dispose();
         });
 

@@ -2,6 +2,7 @@ package Sudoku;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -224,6 +225,21 @@ public class Sudoku extends JFrame implements KeyListener, ActionListener {
 		}
 		setTextOnAllButtons();
 		disableAll();
+	}
+
+	public void generateGameBoard(String path) {
+        @SuppressWarnings("unchecked")
+		ArrayList<ArrayList<Integer>> sudoku = reading_csv.read_csv(ArrayList.class, path);
+
+		answer.clear();
+		answer = sudoku;
+
+		nums.clear();
+		nums = sudoku;
+
+		addBlankSpots();
+		setTextOnAllButtons();
+		enableBlank();
 	}
 
 	public void generateGameBoard() {

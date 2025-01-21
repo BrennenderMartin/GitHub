@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class reading_csv {
     public static void main(String[] args) {
@@ -20,9 +21,60 @@ public class reading_csv {
         // ArrayList in 2D-Array (Matrix) umwandeln
         int[][] matrix = matrixList.toArray(new int[matrixList.size()][]);
 
+        System.out.println("Matrix aus der CSV-Datei:");
+
         print_csv(matrix);
 
         //delete_csv(csvFile);
+    }
+
+    public static int[][] read_csv(String path) {
+        File csvFile = new File(path); // Pfad zur CSV-Datei
+        ArrayList<int[]> matrixList = new ArrayList<>(); // Liste für Zeilen der Matrix
+
+        read_csv(csvFile, matrixList);
+
+        // ArrayList in 2D-Array (Matrix) umwandeln
+        int[][] matrix = matrixList.toArray(new int[matrixList.size()][]);
+
+        return matrix;
+    }
+
+    public static <T> T read_csv(Class<T> type, String path) {
+        File csvFile = new File(path); // Pfad zur CSV-Datei
+        ArrayList<int[]> matrixList = new ArrayList<>(); // Liste für Zeilen der Matrix
+
+        read_csv(csvFile, matrixList);
+
+        // ArrayList in 2D-Array (Matrix) umwandeln
+        int[][] matrix = matrixList.toArray(new int[matrixList.size()][]);
+
+
+        // Konvertierte ArrayList<ArrayList<Integer>>
+        ArrayList<ArrayList<Integer>> arrayListOfLists = new ArrayList<>();
+        
+        // Konvertierung durchführen
+        for (int[] array : matrixList) {
+            ArrayList<Integer> innerList = new ArrayList<>();
+            for (int value : array) {
+                innerList.add(value); // Werte aus int[] in ArrayList<Integer> hinzufügen
+            }
+            arrayListOfLists.add(innerList);
+        }
+
+        // Ergebnis anzeigen
+        System.out.println("Original ArrayList<int[]>:");
+        for (int[] array : matrixList) {
+            System.out.println(Arrays.toString(array));
+        }
+
+        if (type == ArrayList.class) {
+            return type.cast(arrayListOfLists);
+        } else if (type == int[][].class) {
+            return type.cast(matrix);
+        } else {
+            throw new IllegalArgumentException("Unsupported type: " + type.getName());
+        }
     }
 
     public static void read_csv(File csvFile, ArrayList<int[]> matrixList) {
@@ -47,7 +99,6 @@ public class reading_csv {
 
     public static void print_csv(int[][] matrix) {
         // Matrix ausgeben
-        System.out.println("Matrix aus der CSV-Datei:");
         for (int[] row : matrix) {
             for (int value : row) {
                 System.out.print(value + " ");

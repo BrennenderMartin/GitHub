@@ -39,10 +39,10 @@ public class RegisterFrame extends JFrame {
         JButton backButton = new JButton("Zurück");
 
         // Registrierung
-        registerButton.addActionListener(_ -> handleRegister());
+        registerButton.addActionListener(e -> handleRegister());
 
         // Zurück zum Hauptfenster
-        backButton.addActionListener(_ -> {
+        backButton.addActionListener(e -> {
             new StartFrame();
             dispose();
         });
