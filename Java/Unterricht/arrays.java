@@ -1,3 +1,5 @@
+package Unterricht;
+
 import java.util.Arrays;
 
 public class arrays {

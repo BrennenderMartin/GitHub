@@ -1,3 +1,5 @@
+package Unterricht;
+
 public class threading {
     public static void main(String[] args) {
         // Thread für Person A

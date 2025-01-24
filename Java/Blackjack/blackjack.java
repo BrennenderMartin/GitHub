@@ -2,24 +2,30 @@ package Blackjack;
 
 import java.util.ArrayList;
 
-/**
- * @author 
- * @version 
- */
 public class blackjack {
 
-    Card[] deck = {};
-    for (int color = 1; color < 4; color++) {
-        for (int value  = 1; value < 13; value++) {
-            deck[(value * color) - 1] = Card.Card(color, value);
-        }
-    }
+    int numberOfDecks = 6;
+    int numberOfCards = 52 * numberOfDecks;
+
+    ArrayList<ArrayList<Card>> deck = new ArrayList<>();
 
     public static void main(String[] args) {
         new blackjack();
     }
 
     public blackjack() {
+        for (int i = 1; i <= numberOfDecks; i++) {
 
+            ArrayList<Card> row = new ArrayList<>();
+
+            for (int j = 1; j <= 4; j++) {
+                for (int k = 1; k <= 13; k++) {
+                    int color = j;
+                    int value = k;
+                    Card card = new Card(color, value);
+                    row.add(card);
+                }
+            }
+        }
     }
 }

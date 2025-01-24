@@ -12,8 +12,8 @@ import java.util.Scanner;
 
 public class alphatest {
     public static void main(String[] args) {
-            new alphatest();
-        }
+        new alphatest();
+    }
 
     public alphatest() {
         main();

@@ -45,6 +45,11 @@ public class Display extends JFrame implements ActionListener
         initializeDisplay();        // Fenster initialisieren
     }
 
+    public Display(String title) {
+        this.title = title;             // Titel setzen
+        initializeDisplay();        // Fenster initialisieren
+    }
+
     
     private Hashtable<String, Data> table = new Hashtable<String, Data>(10);
     private int xwidth, yheight;

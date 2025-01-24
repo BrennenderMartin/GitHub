@@ -1,3 +1,5 @@
+package Unterricht;
+
 // TikTokTrend:
 // Eine Zahl kann immer zur 1 umgeformt werden!
 // Dazu muss man nur folgende Rechnungen durchführen:

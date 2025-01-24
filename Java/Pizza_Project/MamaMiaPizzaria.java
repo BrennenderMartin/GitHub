@@ -25,7 +25,7 @@ public class MamaMiaPizzaria {
     int bestellung;
     boolean aktive_bestellung;
 
-    public MamaMiaPizzaria() { // Konstruktor
+    public MamaMiaPizzaria() { // Konstruktor 
         fenster = new Display("Pizzeria Traditore", this);
         start();
     }
