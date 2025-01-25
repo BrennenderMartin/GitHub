@@ -28,17 +28,17 @@ daten = {
     "Image": ["Image_test.jpg", "Image_test2.jpg", "Image_test3.jpg", "Image_test4.jpg"]
 }
 
-#df = pd.DataFrame([[1, 2], [4, 5], [7, 8]],
-#                  index=['cobra', 'viper', 'sidewinder'],
-#                  columns=['max_speed', 'shield'])
+df = pd.DataFrame([[1, 2], [4, 5], [7, 8]],
+                    index=['cobra', 'viper', 'sidewinder'],
+                    columns=['max_speed', 'shield'])
 
-df = pd.DataFrame(daten)
+#df = pd.DataFrame(daten)
 df.to_csv("Test8.csv", sep=";", index=False)
-
 """
 
+""""""
 daten = pd.read_csv("Test8.csv", sep=";")
 df = pd.DataFrame(daten)
-df.at[1, "DefectID"] = 9999
-#print(df)
-df.to_csv("Test8.csv", sep=";")
+df.at[0, "max_speed"] = 5
+print(df)
+#df.to_csv("Test8.csv", sep=";")
