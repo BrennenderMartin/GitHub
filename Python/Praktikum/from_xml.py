@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+import pandas as pd
 
 path = 'Python/Praktikum/booking_4092840.xml'
 
@@ -8,11 +9,12 @@ def parse_element(element, level=0, parent_tag=None):
     and store it in a list with context (parent tag).
     """
     indent = "  " * level
-    print(f"{indent}Tag: {element.tag}, Attributes: {element.attrib}")
+    #print(f"{indent}Tag: {element.tag}, Attributes: {element.attrib}")
 
+    
     # Print text content if present
     if element.text and element.text.strip():
-        print(f"{indent}  Text: {element.text.strip()}")
+        #print(f"{indent}  Text: {element.text.strip()}")
         data_list.append({
             "parent": parent_tag,
             "tag": element.tag,
@@ -24,24 +26,6 @@ def parse_element(element, level=0, parent_tag=None):
     for child in element:
         parse_element(child, level + 1, parent_tag=element.tag)
 
-# Load and parse the XML file
-file_path = 'Python/Praktikum/booking_4092840.xml'
-tree = ET.parse(file_path)
-root = tree.getroot()
-
-data_list = []
-
-# Parse and print all information
-print("XML Content:")
-parse_element(root)
-
-# Display structured data
-print("\nExtracted Data:")
-for item in data_list:
-    print(item)
-
-# Example: Differentiating customer and passenger names
-
 def get_item(parent, tag):
     item = next((item['text'] 
                 for item in data_list 
@@ -49,6 +33,32 @@ def get_item(parent, tag):
                 item['parent'] == parent), None)
     
     return {tag, item}
+
+# Load and parse the XML file
+tree = ET.parse(path)
+root = tree.getroot()
+
+data_list = []
+
+
+# Parse and print all information
+print("XML Content:")
+parse_element(root)
+df = pd.DataFrame(data_list)
+
+print(df)
+
+print(get_item("accommodation", "address"))
+
+"""
+# Display structured data
+print("\nExtracted Data:")
+for item in data_list:
+    print(item)
+
+# Example: Differentiating customer and passenger names
+
+
 
 #customer_name = next((item['text'] for item in data_list if item['tag'] == 'name' and item['parent'] == 'customer'), None)
 #passenger_name = next((item['text'] for item in data_list if item['tag'] == 'name' and item['parent'] == 'lead_passenger'), None)
@@ -62,3 +72,5 @@ print(item)
 print("\nSpecific Information:")
 print(f"Customer Name: {customer_name}")
 print(f"Passenger Name: {passenger_name}")
+"""
+
