@@ -57,17 +57,49 @@ titleList= ["pickup_time",
 
 testList = ["Title",
             "Author",
-            "Year",
-            "Genre"]
+            "Month",
+            "Year"]
+
+csv_list = []
+
+path = 'Python/Praktikum/file.xml'
+
+def get_mag(file_path, magazine_id):
+    # Parse the XML file
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+    
+    for magazine in root.findall("Magazine"):
+        if magazine.get("id") == magazine_id:
+            
+            title = magazine.find('Title').text
+            author = magazine.find('Issue').text
+            month = magazine.find('Month').text
+            year = magazine.find('Year').text
+            
+            return {
+                "Title": title,
+                "Author": author,
+                "Month": month,
+                "Year": year
+            }
+
 
 def get_book_info_by_id(file_path, book_id):
     # Parse the XML file
     tree = ET.parse(file_path)
     root = tree.getroot()
-
+    
+    
     # Find the book with the matching id
     for book in root.findall('Book'):
         if book.get('id') == book_id:
+            """
+            matrix = []
+            for i, value in enumerate(testList):
+                matrix.append([testList[i], value])
+            return matrix
+            """
             # Extract book information
             title = book.find('Title').text
             author = book.find('Author').text
@@ -81,11 +113,33 @@ def get_book_info_by_id(file_path, book_id):
                 "Year": year,
                 "Genre": genre
             }
+            
+            
     return None
 
+"""
+if __name__ == "__main__":
+    file_path = path
+    mag_id = input("Enter the magazine ID: ").strip()
+    
+    mag_info = get_mag(file_path, mag_id)
+    print(mag_info)
+    
+    if mag_info:
+        print("Magazine Information:")
+        for key, value in mag_info.items():
+            print(f"{key}: {value}")
+            csv_list.append([key, value])
+    else:
+        print(f"No magazine found with ID {mag_id}.")
+    """
+
+#print(csv_list)
+
+""""""
 # Example Usage
 if __name__ == "__main__":
-    file_path = 'Python/Praktikum/file.xml'  # Path to your XML file
+    file_path = path  # Path to your XML file
     book_id = input("Enter the book ID: ").strip()
 
     # Fetch book information
