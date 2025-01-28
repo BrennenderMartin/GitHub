@@ -4,48 +4,25 @@ from datetime import datetime
 import xml.etree.ElementTree as ET
 import pandas as pd
 
-def get_item(path, root):
-    """
-    Extracts the value from the XML path. Supports both single paths (string)
-    and multiple paths (list).
-    """
-    if isinstance(path, str):
-        element = root.find(path)
-        if element is not None and element.text:
-            return element.text.strip()
-    elif isinstance(path, list):
-        return " ".join(
-            root.find(p).text.strip() if root.find(p) is not None and root.find(p).text else ""
-            for p in path
-        )
-    return ""
+"""Global variables:"""
+sixSeater = "6 Seater"
+sixSeaterPossibilities = ["Private Minivan", "Private Minivan (1-6)", "minivan"]
 
-def create_csv(mapping, file_name, root, data):
-    """
-    Creates a DataFrame from the mapping and appends the data to the CSV.
-    """
-    row = {}
-    for key, value in mapping.items():
-        entry = get_item(value, root)
-        
-        if key == "vehicle_type_name" and (entry == "Private Minivan" or entry == "Private Minivan (1-6)" or entry == "minivan"):
-            entry = "6 Seater"
-        
-        row[key] = entry
+saloon = "Saloon"
+saloonPossibilities = ["Private Transfer"]
 
-    # Append the row to the data list
-    data.append(row)
+folder_path = "xml_to_csv/input"  # Replace with your input folder path
+output_folder =  "xml_to_csv/output/" # Replace with your output folder path
+processed_folder = "xml_to_csv/processed" # Replace with your processed folder path
 
-    # Save to CSV
-    df = pd.DataFrame(data, dtype=object)
-    df.to_csv(file_name, sep=";", index=False, quoting=3)
+date_format = "%Y-%m-%d_%H-%M-%S" #Here: Year-Month-Day_Hour-Minute-Second
 
 mapping_SUNTR ={"pickup_time": "transfers/transfer/origin/pickup_time",
-                "pickup_address": "transfers/transfer/origin/name",
+                "pickup_address": "",
                 "pickup_address_complete": "",
                 "pickup_latitude": "",
                 "pickup_longitude": "",
-                "dropoff_address": "transfers/transfer/destination/accommodation/address",
+                "dropoff_address": "",
                 "dropoff_address_complete": "",
                 "dropoff_latitude": "",
                 "dropoff_longitude": "",
@@ -151,16 +128,111 @@ mapping_default = { "pickup_time": "pickupDate",
 }
 
 
-# Specify the folder containing XML files
-folder_path = "xml_to_csv/input"  # Replace with your folder path
-output_folder = "xml_to_csv/processed"  # Folder where processed files will be moved
+
+def get_item(path, root):
+    """
+    Extracts the value from the XML path. Supports both single paths (string)
+    and multiple paths (list).
+    """
+    if isinstance(path, str):
+        element = root.find(path)
+        if element is not None and element.text:
+            return element.text.strip()
+    elif isinstance(path, list):
+        return " ".join(
+            root.find(p).text.strip() if root.find(p) is not None and root.find(p).text else ""
+            for p in path
+        )
+    return ""
+
+def create_csv_SUNTR(mapping, file_name, root, data):
+    """
+    Creates a DataFrame from the mapping and appends data for all transfers to the CSV.
+    """
+    # Find all <transfer> elements under <transfers>
+    transfers = root.find("transfers")
+    if transfers is None:
+        print("No transfers found in this booking.")
+        return
+
+    # Iterate over each transfer
+    for transfer in transfers.findall("transfer"):
+        row = {}
+        for key, value in mapping.items():
+            # Special handling for pickup and dropoff addresses
+            if key == "pickup_address":
+                origin = transfer.find("origin")
+                if origin is not None and origin.attrib.get("type") == "airport":
+                    row[key] = get_item("name", origin)
+                    appendix_ref_number = "a"
+                elif origin is not None and origin.attrib.get("type") == "city":
+                    row[key] = get_item("accommodation/address", transfer.find("origin"))
+                    appendix_ref_number = "b"
+                else:
+                    row[key] = ""
+            
+            elif key == "dropoff_address":
+                destination = transfer.find("destination")
+                if destination is not None and destination.attrib.get("type") == "airport":
+                    row[key] = get_item("name", destination)
+                elif destination is not None and destination.attrib.get("type") == "city":
+                    row[key] = get_item("accommodation/address", transfer.find("destination"))
+                else:
+                    row[key] = ""
+            
+            else:
+                # Default behavior for other keys
+                if "transfers/transfer/" in value:  # Adjust paths to be relative to the <transfer>
+                    entry = get_item(value.replace("transfers/transfer/", ""), transfer)
+                else:
+                    entry = get_item(value, root)
+
+                # Adjust vehicle type name
+                if key == "vehicle_type_name" and entry in sixSeaterPossibilities:
+                    entry = sixSeater
+                elif key == "vehicle_type_name" and entry in saloonPossibilities:
+                    entry = saloon
+                elif key == "ref_number":
+                    entry += appendix_ref_number
+                row[key] = entry
+
+        # Append the row for this transfer
+        data.append(row)
+
+    # Save to CSV
+    df = pd.DataFrame(data, dtype=object)
+    df.to_csv(file_name, sep=";", index=False, quoting=3)
+
+def create_csv_default(mapping, file_name, root, data):
+    """
+    Creates a DataFrame from the mapping and appends all data to the CSV.
+    """
+    # Iterate over each transfer
+    row = {}
+    for key, value in mapping.items():
+        entry = get_item(value, root)
+
+        # Adjust vehicle type name
+        if key == "vehicle_type_name" and entry in sixSeaterPossibilities:
+            entry = sixSeater
+        elif key == "vehicle_type_name" and entry in saloonPossibilities:
+            entry = saloon
+
+        row[key] = entry
+
+    # Append the row for this transfer
+    data.append(row)
+
+    # Save to CSV
+    df = pd.DataFrame(data, dtype=object)
+    df.to_csv(file_name, sep=";", index=False, quoting=3)
 
 # Initialize the shared dataset
 data = []
 
 # Create the output folder with the current date
-date_folder = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-final_folder = os.path.join(output_folder, date_folder)
+date = datetime.now().strftime(date_format)
+final_folder = os.path.join(processed_folder, date)
 os.makedirs(final_folder, exist_ok=True)
 
 if not os.listdir(folder_path):
@@ -185,13 +257,13 @@ else:
         reference = root.find("reference")
         if reference is not None and "SUNTR" in reference.text:
             print(f"The reference contains SUNTR in {file_name}.")
-            chosen_mapping = mapping_SUNTR
+            create_csv_SUNTR(mapping_SUNTR, f"{output_folder}/output_{date}.csv", root, data)
         else:
             print(f"The reference does not contain SUNTR in {file_name}. Found: {reference.text if reference is not None else 'None'}")
-            chosen_mapping = mapping_default
+            create_csv_default(mapping_default, f"{output_folder}/output_{date}.csv", root, data)
 
         # Extract data and append it as a new row
-        create_csv(chosen_mapping, f"xml_to_csv/output/output_{date_folder}.csv", root, data)
+        
         
         # Move the processed XML file to the date-named folder
         new_file_path = os.path.join(final_folder, file_name)
