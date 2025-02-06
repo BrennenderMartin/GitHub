@@ -3,3 +3,6 @@ CTkListbox
 numpy
 pandas
 dokusan
+tk
+tkinterdnd2
+Pillow
