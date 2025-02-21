@@ -1,5 +1,14 @@
 package HerrLinden;
-
+/*
+ * f(x) = x^2 + 2x
+ * F(x) = 1/3 x^3 + x^2
+ * Integral(a-->b) f(x) dx = [(1/3 b^3 + b^2)-(1/3 a^3 + a^2)]
+ * 
+ * Beispiel f(x) = x^2
+ * a = 0 ; b = 6
+ * F(x) = 1/3 x^3
+ * Integral(0-->6) f(x) dx =  1/3 6^3 - 1/3 0^3 = 186/3 = 72
+ */
 public class programm {
     int start_range = 0;
     int end_range = 6;
