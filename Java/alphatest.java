@@ -19,7 +19,7 @@ public class alphatest {
     }
 
     private void main() {
-        System.out.println("\n Final tests complete... Ready to run any Programms in Java! :) \n");
+        System.out.println("\nFinal tests complete... Ready to run any Programms in Java! :) \n");
     }
 
     @SuppressWarnings("unused")
