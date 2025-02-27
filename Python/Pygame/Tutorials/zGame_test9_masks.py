@@ -21,7 +21,7 @@ WHITE = (255, 255, 255)
 pygame.mouse.set_visible(False)
 
 #create soldier
-soldier = pygame.image.load("Python/Tutorials/soldier.png").convert_alpha()
+soldier = pygame.image.load("Python/Pygame/Tutorials/soldier.png").convert_alpha()
 soldier_rect = soldier.get_rect()
 soldier_mask = pygame.mask.from_surface(soldier)
 mask_image = soldier_mask.to_surface()
@@ -37,7 +37,6 @@ soldier_rect.topleft = (350, 250)
 #game loop
 run = True
 while run:
-  
     #get mouse coordinates
     pos = pygame.mouse.get_pos()
 
