@@ -8,3 +8,7 @@ def App():
         
         self.button = ctk.CTkButton(self, text="my button", command=self.button_callback)
         self.button.grid(row=0, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
+
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
