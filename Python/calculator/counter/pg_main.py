@@ -18,7 +18,7 @@ font = pygame.font.SysFont("Futura", font_size)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("CC")
 
-turret_original = pygame.image.load("Python/calculator/img/arrow.png").convert_alpha()
+turret_original = pygame.image.load("Python/calculator/counter/img/arrow.png").convert_alpha()
 
 sprite_up = pygame.transform.rotate(turret_original, -90)
 sprite_up_rect = sprite_up.get_rect(center = (100, 100))
