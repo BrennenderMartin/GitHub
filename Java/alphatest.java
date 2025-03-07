@@ -11,14 +11,6 @@ import java.util.Scanner;
 
 public class alphatest {
     public static void main(String[] args) {
-        new alphatest();
-    }
-
-    public alphatest() {
-        main();
-    }
-
-    private void main() {
         System.out.println("\nFinal tests complete... Ready to run any Programms in Java! :) \n");
     }
 
