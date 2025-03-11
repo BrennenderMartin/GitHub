@@ -1,18 +1,26 @@
 import java.util.Scanner;
 
+/*
+ *  Max number (base 10) 999999999
+ */
+
 public class baseConverter {
     public static void main(String[] args) {
         int num;
-        int base = 2;
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Gib eine Zahl an: ");
             num = scanner.nextInt();
         }
-        
-        for (int i = base; i <= 16; i++) {
+        for (int i = 2; i <= 36; i++) {
             System.out.println("Die gegebene Zahl in Basis " + i + ": " + toBase(num, i));
         }
+    }
+
+    public static void second(String[] args) {
+        int i = 25;
+        int num = 28;
+        System.out.println("Die gegebene Zahl in Basis " + i + ": " + toBase(num, i));
     }
 
     public static String toBase(int num, int base) {
@@ -22,6 +30,6 @@ public class baseConverter {
     }
 
     private static String hexChar(int remainder) {
-        return "0123456789ABCDEF".charAt(remainder) + "";
+        return "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(remainder) + "";
     }
 }
