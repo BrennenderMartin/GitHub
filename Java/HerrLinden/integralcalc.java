@@ -1,3 +1,4 @@
+package HerrLinden;
 
 /*
  * f(x) = x^2 + 2x

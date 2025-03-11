@@ -1,3 +1,5 @@
+package HerrLinden;
+
 import java.util.Scanner;
 
 /*

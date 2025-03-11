@@ -68,8 +68,6 @@ public class programmcopy {
     
     public double integral_calc(int start, int end) {
         double y = function(0);
-        String derivation = eval_funct;
-
         return y;
     }
 

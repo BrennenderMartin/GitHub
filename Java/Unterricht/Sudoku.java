@@ -44,7 +44,6 @@ public class Sudoku {
         while(true) {
             //Lokale Variablen werden generiert
             int spalte, zeile, eingabe;
-            boolean eingabeOK = true;
             
             //Liest die Werte der Eingabe ein
             fenster.ready("Drücke Button \"Eintragen\", wenn alle Werte eingegeben sind.");
