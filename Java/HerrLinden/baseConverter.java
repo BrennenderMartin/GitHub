@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /*
  *  Max number (base 10) 999999999
+ *  Workin Bitch?!?
  */
 
 public class baseConverter {
