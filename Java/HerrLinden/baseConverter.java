@@ -5,6 +5,9 @@ import java.util.Scanner;
 /*
  *  Max number (base 10) 999999999
  *  Workin Bitch?!?
+ *  Beispiele:
+ *  1147484
+ *  29234652
  */
 
 public class baseConverter {
