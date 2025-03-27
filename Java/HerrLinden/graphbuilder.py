@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load the CSV file
-df = pd.read_csv('result.csv')
+df = pd.read_csv('result1.csv')
 
 # Print the CSV preview
 print("CSV preview:")

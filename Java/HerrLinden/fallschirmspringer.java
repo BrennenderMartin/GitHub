@@ -37,7 +37,7 @@ public class fallschirmspringer {
 
     public static void writeCSV(double[][] result, int n) {
         // Write result matrix to CSV file without recursion
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("result.csv"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("result1.csv"))) {
             // Write CSV header
             writer.write("Time(t),Acceleration(a),Velocity(v),Height(x)");
             writer.newLine();
