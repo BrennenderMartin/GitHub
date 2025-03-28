@@ -32,7 +32,7 @@ public class fallschirmspringer {
             result[i][2] = v;
             result[i][3] = x; 
         }
-        writeCSV(result, n);
+        //writeCSV(result, n);
     }
 
     public static void writeCSV(double[][] result, int n) {

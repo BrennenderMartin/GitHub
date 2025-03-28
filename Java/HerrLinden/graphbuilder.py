@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use('Agg')  # Use an interactive backend
+matplotlib.use('Qt5Agg')  # Use an interactive backend
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -12,7 +12,7 @@ print(df.head())
 
 # Create a figure with 3 subplots sharing the x-axis (time)
 fig, axs = plt.subplots(3, 1, figsize=(8, 10), sharex=True)
-fig.suptitle('Results vs Time :)')
+fig.suptitle('Results vs Time')
 
 # Plot Acceleration vs Time
 axs[0].plot(df['Time(t)'], df['Acceleration(a)'], marker='o', linestyle='-', color='red')
@@ -31,4 +31,6 @@ axs[2].set_xlabel('Time (t)')
 axs[2].grid(True)
 
 plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-#plt.show()
+plt.savefig("results1.png")
+print("Graph saved as results.png")
+plt.show()
