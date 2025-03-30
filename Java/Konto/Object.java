@@ -1,6 +1,6 @@
 package Konto;
 
-public class Object implements Account {
+public class Object{
     private double attr;
     private String name;
 
@@ -13,6 +13,13 @@ public class Object implements Account {
     // Constructor with name only; defaults attribute to 0.0
     public Object(String name) {
         this(name, 0.0);
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getAttribute() {
