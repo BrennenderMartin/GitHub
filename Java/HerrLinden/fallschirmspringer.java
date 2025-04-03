@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class fallschirmspringer {
     public static void main(String[] args) {
-        double delta_t = 0.02; /* Änderungsrate */
+        double delta_t = 0.2; /* Änderungsrate */
         double m = 0.2; /* Masse */
         double D = 0.1; /* Federhärte */
         double x = 0.15; /* "Starthöhe" */
@@ -16,7 +16,7 @@ public class fallschirmspringer {
         double a = 0; /* Beschleunigung */
         double t = 0; /* Zeit */
 
-        int n = 30; /* Anzahl Wiederholungen */
+        int n = 100; /* Anzahl Wiederholungen */
 
         double[][] result = new double[n][4];
 
@@ -32,12 +32,12 @@ public class fallschirmspringer {
             result[i][2] = v;
             result[i][3] = x; 
         }
-        //writeCSV(result, n);
+        writeCSV(result, n);
     }
 
     public static void writeCSV(double[][] result, int n) {
         // Write result matrix to CSV file without recursion
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("result1.csv"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("result2.csv"))) {
             // Write CSV header
             writer.write("Time(t),Acceleration(a),Velocity(v),Height(x)");
             writer.newLine();

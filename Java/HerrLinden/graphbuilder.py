@@ -13,7 +13,7 @@ def create_graph(file):
 
     # Create a figure with 3 subplots sharing the x-axis (time)
     fig, axs = plt.subplots(3, 1, figsize=(8, 10), sharex=True)
-    fig.suptitle('Results vs Time')
+    fig.suptitle('Results vs Time\n delta_t = 0.02, steps = 30')
 
     # Plot Acceleration vs Time
     axs[0].plot(df['Time(t)'], df['Acceleration(a)'], marker='o', linestyle='-', color='red')
@@ -33,7 +33,7 @@ def create_graph(file):
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
 
-create_graph('result1.csv')
+create_graph('result.csv')
 
-#plt.savefig("results1.png")
+plt.savefig("results.png")
 plt.show()
