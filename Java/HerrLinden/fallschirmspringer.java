@@ -6,7 +6,6 @@ import java.io.IOException;
 
 public class fallschirmspringer {
     public static void main(String[] args) {
-        double delta_t = 0.2; /* Änderungsrate */
         double m = 0.2; /* Masse */
         double D = 0.1; /* Federhärte */
         double x = 0.15; /* "Starthöhe" */
@@ -16,14 +15,15 @@ public class fallschirmspringer {
         double a = 0; /* Beschleunigung */
         double t = 0; /* Zeit */
 
+        double delta_t = 0.2; /* Änderungsrate */
         int n = 100; /* Anzahl Wiederholungen */
 
         double[][] result = new double[n][4];
 
         for (int i = 0; i < n; i++) {
+            v_alt = v;
             t = t + delta_t;
             a = -(D / m) * x;
-            v_alt = v;
             v = v + a * delta_t;
             x = x + (v + v_alt) / 2 * delta_t;
             System.out.printf("t: %.2f a: %.3f v: %.3f h: %.3f%n", t, a, v, x);
