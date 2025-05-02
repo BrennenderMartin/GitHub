@@ -36,12 +36,11 @@ public class fallschirmspringer {
     }
 
     public static void writeCSV(double[][] result, int n) {
-        // Write result matrix to CSV file without recursion
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("result2.csv"))) {
-            // Write CSV header
+            
             writer.write("Time(t),Acceleration(a),Velocity(v),Height(x)");
             writer.newLine();
-            // Write CSV rows
+            
             for (int i = 0; i < n; i++) {
                 writer.write(String.format("%.2f,%.3f,%.3f,%.3f",
                             result[i][0],
