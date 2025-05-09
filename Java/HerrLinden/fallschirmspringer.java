@@ -16,7 +16,7 @@ public class fallschirmspringer {
         double t = 0; /* Zeit */
 
         double delta_t = 0.2; /* Änderungsrate */
-        int n = 100; /* Anzahl Wiederholungen */
+        int n = 1000; /* Anzahl Wiederholungen */
 
         double[][] result = new double[n][4];
 
@@ -30,13 +30,13 @@ public class fallschirmspringer {
             result[i][0] = t;
             result[i][1] = a;
             result[i][2] = v;
-            result[i][3] = x; 
+            result[i][3] = x;
         }
         writeCSV(result, n);
     }
 
     public static void writeCSV(double[][] result, int n) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("result2.csv"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("results_anim.csv"))) {
             
             writer.write("Time(t),Acceleration(a),Velocity(v),Height(x)");
             writer.newLine();
