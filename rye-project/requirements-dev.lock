@@ -10,8 +10,14 @@
 #   universal: false
 
 -e file:.
+customtkinter==5.2.2
+    # via rye-project
+darkdetect==0.8.0
+    # via customtkinter
 numpy==2.2.5
     # via pandas
+packaging==25.0
+    # via customtkinter
 pandas==2.2.3
     # via rye-project
 pygame==2.6.1

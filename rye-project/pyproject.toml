@@ -8,6 +8,7 @@ authors = [
 dependencies = [
     "pygame>=2.6.1",
     "pandas>=2.2.3",
+    "customtkinter>=5.2.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -23,6 +24,8 @@ dev-dependencies = []
 [tool.rye.scripts]
 main = "python3 -m rye_project.main"
 anim = "python3 -m rye_project.anim.main"
+guiex = "python3 -m rye_project.gui.example"
+gui = "python3 -m rye_project.gui.main"
 
 [tool.hatch.metadata]
 allow-direct-references = true
