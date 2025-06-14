@@ -1,5 +1,5 @@
 [project]
-name = "rye-project"
+name = "python"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
@@ -22,14 +22,14 @@ managed = true
 dev-dependencies = []
 
 [tool.rye.scripts]
-main = "python3 -m rye_project.main"
-anim = "python3 -m rye_project.anim.main"
-guiex = "python3 -m rye_project.gui.example"
-gui = "python3 -m rye_project.gui.main"
+main = "python3 -m python.main"
+anim = "python3 -m python.anim.main"
+guiex = "python3 -m python.gui.example"
+gui = "python3 -m python.gui.main"
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/rye_project"]
+packages = ["src/python"]
 
