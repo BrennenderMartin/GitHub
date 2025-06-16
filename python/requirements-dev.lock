@@ -11,7 +11,7 @@
 
 -e file:.
 customtkinter==5.2.2
-    # via rye-project
+    # via python
 darkdetect==0.8.0
     # via customtkinter
 numpy==2.2.5
@@ -19,9 +19,13 @@ numpy==2.2.5
 packaging==25.0
     # via customtkinter
 pandas==2.2.3
-    # via rye-project
+    # via python
+pillow==11.2.1
+    # via python
+playsound==1.2.2
+    # via python
 pygame==2.6.1
-    # via rye-project
+    # via python
 python-dateutil==2.9.0.post0
     # via pandas
 pytz==2025.2

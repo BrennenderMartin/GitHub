@@ -9,6 +9,8 @@ dependencies = [
     "pygame>=2.6.1",
     "pandas>=2.2.3",
     "customtkinter>=5.2.2",
+    "pillow>=11.2.1",
+    "playsound==1.2.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -26,6 +28,7 @@ main = "python3 -m python.main"
 anim = "python3 -m python.anim.main"
 guiex = "python3 -m python.gui.example"
 gui = "python3 -m python.gui.main"
+test = "python3 -m python.gui.test"
 
 [tool.hatch.metadata]
 allow-direct-references = true
