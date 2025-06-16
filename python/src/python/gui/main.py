@@ -1,8 +1,8 @@
 import customtkinter as ctk
 import os
-from PIL import Image
+from PIL import Image # type: ignore
 import subprocess  # Add to top of your file
-from playsound import playsound  # pip install playsound (version 1.2.2 preferred)
+from playsound import playsound  # type: ignore # pip install playsound (version 1.2.2 preferred)
 import tkinter.filedialog as fd
 
 ctk.set_appearance_mode("System")  # Modes: "System" (default), "Dark", "Light"
