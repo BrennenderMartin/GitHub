@@ -341,16 +341,16 @@ class App(ctk.CTk):
         
     def create_items(self):
         self.scrollable_label_button_frame.remove_item()
-        for i, item in enumerate(os.listdir(self.sounds_path)):
-                if os.path.isfile(os.path.join(self.sounds_path, item)) and item.endswith(".mp4") or item.endswith(".mp3"):
-                    self.scrollable_label_button_frame.add_item(
-                        item=item.split(".")[0],
-                        type=item.split(".")[-1],
-                        path=self.sounds_path,
-                        image=ctk.CTkImage(Image.open(os.path.join(CURRENT_DIR, "test_images", "chat_light.png")))
-                    )
-                else:
-                    print(f"Skipping file: {item}")
+        for item in enumerate(os.listdir(self.sounds_path)):
+            if os.path.isfile(os.path.join(self.sounds_path, item)) and item.endswith(".mp4") or item.endswith(".mp3"):
+                self.scrollable_label_button_frame.add_item(
+                    item=item.split(".")[0],
+                    type=item.split(".")[-1],
+                    path=self.sounds_path,
+                    image=ctk.CTkImage(Image.open(os.path.join(CURRENT_DIR, "test_images", "chat_light.png")))
+                )
+            else:
+                print(f"Skipping file: {item}")
         
     def select_folder(self):
         self.tabview.set("Playback")
