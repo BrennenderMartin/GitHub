@@ -38,7 +38,7 @@ class ScrollableLabelButtonFrame(ctk.CTkScrollableFrame):
     def play_sound(self, item, filetype, filepath):
         filepath = os.path.join(filepath, f"{item}.{filetype}")
         try:
-            os.startfile(filepath)
+            playsound(filepath.replace("/", "\\"))
         except Exception as e:
             print(f"Error: {e}")
     
@@ -288,6 +288,7 @@ class App(ctk.CTk):
         self.edit_button_1 = ctk.CTkButton(
             self.button_frame,
             text="Cut before",
+            command=self.cut_before
         )
         self.edit_button_1.grid(
             row=0,
@@ -298,7 +299,8 @@ class App(ctk.CTk):
         
         self.edit_button_2 = ctk.CTkButton(
             self.button_frame,
-            text="Cut from"
+            text="Cut from",
+            command=self.cut_from
         )
         self.edit_button_2.grid(
             row=0,
@@ -309,7 +311,8 @@ class App(ctk.CTk):
         
         self.edit_button_3 = ctk.CTkButton(
             self.button_frame,
-            text="Cut to"
+            text="Cut to",
+            command=self.cut_to
         )
         self.edit_button_3.grid(
             row=0,
@@ -320,7 +323,8 @@ class App(ctk.CTk):
         
         self.edit_button_4 = ctk.CTkButton(
             self.button_frame,
-            text="Cut after"
+            text="Cut after",
+            command=self.cut_after
         )
         self.edit_button_4.grid(
             row=0,
@@ -341,7 +345,7 @@ class App(ctk.CTk):
         
     def create_items(self):
         self.scrollable_label_button_frame.remove_item()
-        for item in enumerate(os.listdir(self.sounds_path)):
+        for item in os.listdir(self.sounds_path):
             if os.path.isfile(os.path.join(self.sounds_path, item)) and item.endswith(".mp4") or item.endswith(".mp3"):
                 self.scrollable_label_button_frame.add_item(
                     item=item.split(".")[0],
@@ -363,7 +367,21 @@ class App(ctk.CTk):
         else:
             print("No folder selected.")
             return None
+    
+    def cut_before(self):
+        print("Cut before")
         
+    def cut_from(self):
+        print("Cut from")
+        
+    def cut_to(self):
+        print("Cut to")
+        
+    def cut_after(self):
+        print("Cut after")
+        
+    def auto_trim(self):
+        print("Arschaarrasierer")
     
     def change_tabs(self):
         self.tabview.set("Playback")

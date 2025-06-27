@@ -28,6 +28,8 @@ pygame==2.6.1
     # via python
 python-dateutil==2.9.0.post0
     # via pandas
+python-vlc==3.0.21203
+    # via python
 pytz==2025.2
     # via pandas
 six==1.17.0
